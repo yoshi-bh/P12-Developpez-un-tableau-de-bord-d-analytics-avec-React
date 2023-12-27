@@ -1,0 +1,13 @@
+@import "_variables.scss";
+
+.header {
+	width: 100%;
+	height: 5.7rem;
+	display: flex;
+	background-color: $background-color;
+	color: white;
+
+	nav {
+		display: flex;
+	}
+}
