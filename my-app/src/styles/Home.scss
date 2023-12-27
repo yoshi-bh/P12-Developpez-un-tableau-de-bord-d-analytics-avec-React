@@ -1,0 +1,68 @@
+@import "_variables.scss";
+
+.home {
+	text-align: center;
+
+	.header {
+		width: 100%;
+		height: 5.7rem;
+		display: flex;
+		background-color: $background-color;
+		color: white;
+
+		nav {
+			display: flex;
+		}
+	}
+
+	.main-section {
+		display: flex;
+	}
+
+	.side-nav {
+		width: 7.3rem;
+		// height: ;
+		background-color: $background-color;
+		color: white;
+	}
+
+	.content {
+		width: 100%;
+
+		.graph-container {
+			width: 100%;
+			height: 100%;
+      padding: 3rem;
+			display: grid;
+			grid-template-columns: auto auto auto;
+			grid-template-rows: auto;
+			grid-template-areas: "graph1 graph1 graph1 values" "graph2 graph3 graph4 values";
+      gap: 3rem;
+		}
+
+		.graph1 {
+			grid-area: graph1;
+			background-color: red;
+		}
+
+		.graph2 {
+			grid-area: graph2;
+			background-color: blue;
+		}
+
+		.graph3 {
+			grid-area: graph3;
+			background-color: greenyellow;
+		}
+
+		.graph4 {
+			grid-area: graph4;
+			background-color: orange;
+		}
+
+    .values {
+      grid-area: values;
+      background-color: purple;
+    }
+	}
+}
