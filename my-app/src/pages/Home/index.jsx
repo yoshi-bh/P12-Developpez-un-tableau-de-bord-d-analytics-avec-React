@@ -9,8 +9,8 @@ function Home() {
 			<section className="main-section">
 				<SideNav />
 				<div className="content">
-					<h1>Main Content</h1>
-					<p>more texte under the title</p>
+					<h1>Bonjour Thomas</h1>
+					<p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 					<div className="graph-container">
 						<div className="graph1"></div>
 						<div className="graph2"></div>
