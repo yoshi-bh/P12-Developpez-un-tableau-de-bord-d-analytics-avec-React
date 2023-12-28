@@ -1,4 +1,6 @@
+@import "./variables.scss";
+
 .graph-activity {
 	grid-area: graph1;
-	background-color: #FBFBFB;
+	background-color: $light-background;
 }

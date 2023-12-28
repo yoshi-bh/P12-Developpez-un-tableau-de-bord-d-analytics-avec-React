@@ -1,4 +1,22 @@
 .graph-avg-session {
-  grid-area: graph2;
-  background-color: #FF0000;
+	grid-area: graph2;
+	background-color: #ff0000;
+
+	.custom-tooltip {
+		background-color: white;
+    padding: 0.7rem;
+
+		.label {
+      // padding: 0;
+      margin: 0;
+			font-size: 0.75rem;
+			font-style: normal;
+			font-weight: 500;
+		}
+	}
+
+  // .recharts-line,
+  // .recharts-tooltip-wrapper {
+  //   transform:  translateX(-8%) scaleX(121%);
+  // }
 }

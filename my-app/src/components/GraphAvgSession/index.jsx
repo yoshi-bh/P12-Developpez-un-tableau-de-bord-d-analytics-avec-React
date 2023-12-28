@@ -7,9 +7,22 @@ import {
 	Tooltip,
 	// Legend,
 	ResponsiveContainer,
+	// ReferenceArea,
 } from "recharts";
 import data from "../../data/mock-average-sessions.json";
 import "../../styles/GraphAvgSession.scss";
+
+const CustomTooltip = ({ active, payload }) => {
+	if (active && payload && payload.length) {
+		return (
+			<div className="custom-tooltip">
+				<p className="label">{payload[0].value + " min"}</p>
+			</div>
+		);
+	}
+
+	return null;
+};
 
 function GraphAvgSession() {
 	return (
@@ -21,6 +34,12 @@ function GraphAvgSession() {
 					data={data.data.sessions}
 					margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
 				>
+					<defs>
+						<linearGradient id="fadeIn" x1="0%" y1="0" x2="100%" y2="0">
+							<stop offset="5%" stopColor="white" stopOpacity={0.4} />
+							<stop offset="95%" stopColor="white" stopOpacity={1} />
+						</linearGradient>
+					</defs>
 					{/* <CartesianGrid strokeDasharray="3 3" /> */}
 					<XAxis
 						dataKey="day"
@@ -31,14 +50,15 @@ function GraphAvgSession() {
 					<YAxis
 						hide={true}
 						dataKey="sessionLength"
-						domain={["dataMin - 20", "dataMax + 30"]}
+						domain={["dataMin - 40", "dataMax + 40"]}
 					/>
-					<Tooltip cursor={false} />
+					<Tooltip cursor={false} content={<CustomTooltip />} />
 					{/* <Legend /> */}
 					<Line
-						type="monotone"
+						type="natural"
 						dataKey="sessionLength"
-						stroke="#FFF"
+						stroke="url(#fadeIn)"
+						// fill="url("
 						strokeWidth={3}
 						dot={false}
 					/>

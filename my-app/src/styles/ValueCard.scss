@@ -1,7 +1,10 @@
+@import "./variables.scss";
+
 .value-card {
 	display: flex;
 	padding: 2rem;
-	background-color: #fbfbfb;
+	background-color: $light-background;
+	border-radius: 0.3125rem;
 
 	img {
 		margin-right: 1.5rem;
