@@ -1,11 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/index.scss';
-import Home from './pages/Home/';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./styles/index.scss";
+// import Fetch from "./components/Fetch/";
+import Home from "./pages/Home/";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>
+	<React.StrictMode>
+		{/* <Fetch /> */}
+		<Home />
+	</React.StrictMode>
 );
