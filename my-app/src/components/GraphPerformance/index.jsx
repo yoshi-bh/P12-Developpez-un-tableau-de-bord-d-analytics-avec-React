@@ -5,7 +5,7 @@ import {
 	PolarRadiusAxis,
 	PolarGrid,
 	// Tooltip,
-	Legend,
+	// Legend,
 	ResponsiveContainer,
 } from "recharts";
 import data from "../../data/mock-performance.json";
@@ -15,25 +15,22 @@ function GraphPerformance() {
 	return (
 		<div className="graph-performance">
 			<ResponsiveContainer width="100%" height="100%">
-				<RadarChart outerRadius={90} width={730} height={250} data={data.data.data}>
-					<PolarGrid />
-					<PolarAngleAxis dataKey="subject" />
-					<PolarRadiusAxis angle={30} domain={[0, 150]} />
-					<Radar
-						name="Mike"
-						dataKey="A"
-						stroke="#8884d8"
-						fill="#8884d8"
-						fillOpacity={0.6}
+				<RadarChart outerRadius={90} width={730} height={250} data={data}>
+					<PolarGrid radialLines={false} stroke="#FFF" />
+					<PolarAngleAxis
+						dataKey="subject"
+						stroke="#FFF"
+						tickLine={false}
+						fontSize={"0.75rem"}
 					/>
-					<Radar
-						name="Lily"
-						dataKey="B"
-						stroke="#82ca9d"
-						fill="#82ca9d"
-						fillOpacity={0.6}
+					<PolarRadiusAxis
+						tick={false}
+						axisLine={false}
+						angle={30}
+						domain={[0, 150]}
 					/>
-					<Legend />
+					<Radar name="User" dataKey="value" fill="#FF0101" fillOpacity={0.6} />
+					{/* <Legend /> */}
 				</RadarChart>
 				{/* <BarChart width={150} height={100} data={data.data.sessions}>
 					<CartesianGrid strokeDasharray="3 3" />

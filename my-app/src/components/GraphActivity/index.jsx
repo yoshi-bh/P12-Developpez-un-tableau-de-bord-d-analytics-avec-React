@@ -15,21 +15,30 @@ function GraphActivity() {
 	return (
 		<div className="graph-activity">
 			<ResponsiveContainer width="100%" height="100%">
-				<BarChart width={150} height={100} data={data.data.sessions}>
-					<CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="day" />
+				<BarChart
+					width={150}
+					height={100}
+					data={data.data.sessions}
+					barGap={"1%"}
+					barCategoryGap={"1%"}
+					margin={{ top: 10, right: 0, bottom: 10, left: 0 }}
+				>
+					<CartesianGrid strokeDasharray="3 3" vertical={false} />
+					<XAxis dataKey="day" tickLine={false} />
 					<YAxis
+						axisLine={false}
+						tickLine={false}
 						yAxisId="kilogram"
 						dataKey="kilogram"
 						orientation="right"
-						domain={["dataMin - 5", "dataMax + 5"]}
+						domain={["dataMin - 2", "dataMax + 5"]}
 					/>
 					<YAxis
 						hide={true}
 						yAxisId="calories"
 						dataKey="calories"
 						orientation="right"
-						domain={["dataMin - 100", "dataMax + 100"]}
+						domain={[0, "dataMax + 10"]}
 					/>
 					<Tooltip />
 					<Legend
@@ -38,13 +47,15 @@ function GraphActivity() {
 						iconType="circle"
 						name="calories"
 						unit="kCal"
+						// margin={{ top: 0, left: 0, right: 0, bottom: 100 }}
 					/>
 					<Bar
 						name="Poids (kg)"
 						unit="kg"
 						dataKey="kilogram"
 						fill="#282D30"
-						barSize={10}
+						maxBarSize={10}
+						radius={[20, 20, 0, 0]}
 						yAxisId="kilogram"
 					/>
 					<Bar
@@ -52,7 +63,8 @@ function GraphActivity() {
 						unit="kCal"
 						dataKey="calories"
 						fill="#E60000"
-						barSize={10}
+						maxBarSize={10}
+						radius={[20, 20, 0, 0]}
 						yAxisId="calories"
 					/>
 				</BarChart>

@@ -3,9 +3,9 @@ import {
 	Line,
 	XAxis,
 	YAxis,
-	CartesianGrid,
+	// CartesianGrid,
 	Tooltip,
-	Legend,
+	// Legend,
 	ResponsiveContainer,
 } from "recharts";
 import data from "../../data/mock-average-sessions.json";
@@ -21,12 +21,27 @@ function GraphAvgSession() {
 					data={data.data.sessions}
 					margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
 				>
-					<CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="day" />
-					<YAxis />
-					<Tooltip />
-					<Legend />
-					<Line type="monotone" dataKey="sessionLength" stroke="#FFF" strokeWidth={3} />
+					{/* <CartesianGrid strokeDasharray="3 3" /> */}
+					<XAxis
+						dataKey="day"
+						axisLine={false}
+						tickLine={false}
+						tick={{ fill: "#FFFFFF", opacity: "0.5" }}
+					/>
+					<YAxis
+						hide={true}
+						dataKey="sessionLength"
+						domain={["dataMin - 20", "dataMax + 30"]}
+					/>
+					<Tooltip cursor={false} />
+					{/* <Legend /> */}
+					<Line
+						type="monotone"
+						dataKey="sessionLength"
+						stroke="#FFF"
+						strokeWidth={3}
+						dot={false}
+					/>
 				</LineChart>
 				{/* <BarChart width={150} height={100} data={data.data.sessions}>
 					<CartesianGrid strokeDasharray="3 3" />

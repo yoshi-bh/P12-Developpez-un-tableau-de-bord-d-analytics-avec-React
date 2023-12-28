@@ -1,4 +1,12 @@
 .graph-performance {
 	grid-area: graph3;
 	background-color: #282d30;
+
+	.recharts-polar-angle-axis-tick:nth-child(1) {
+		transform: translateY(-0.3rem);
+	}
+
+	.recharts-polar-angle-axis-tick:nth-child(4) {
+		transform: translateY(0.7rem);
+	}
 }

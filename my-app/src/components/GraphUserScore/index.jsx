@@ -4,8 +4,8 @@ import {
 	// PolarAngleAxis,
 	// PolarRadiusAxis,
 	// PolarGrid,
-	Tooltip,
-	Legend,
+	// Tooltip,
+	// Legend,
 	ResponsiveContainer,
 } from "recharts";
 import data from "../../data/mock-user.json";
@@ -19,12 +19,12 @@ function GraphUserScore() {
 					width={730}
 					height={250}
 					innerRadius="70%"
-					outerRadius="90%"
+					outerRadius="100%"
 					data={[
 						{
 							name: "Score",
 							score: 100,
-							fill: "#ffc658",
+							fill: "#ffc65800",
 						},
 						// {
 						// 	name: "Score",
@@ -46,21 +46,22 @@ function GraphUserScore() {
 					endAngle={-225}
 				>
 					<RadialBar
+						cornerRadius={20}
 						minAngle={15}
-						label={{ fill: "#666", position: "outsideStart" }}
+						// label={{ fill: "#666", position: "outsideStart" }}
 						background
 						clockWise={true}
 						dataKey="score"
 					/>
-					<Legend
+					{/* <Legend
 						iconSize={10}
 						width={120}
 						height={140}
 						layout="vertical"
 						verticalAlign="middle"
 						align="right"
-					/>
-					<Tooltip />
+					/> */}
+					{/* <Tooltip /> */}
 				</RadialBarChart>
 				{/* <BarChart width={150} height={100} data={data.data.sessions}>
 					<CartesianGrid strokeDasharray="3 3" />
