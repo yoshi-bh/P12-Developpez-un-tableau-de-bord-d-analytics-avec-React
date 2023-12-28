@@ -3,14 +3,28 @@ import {
 	Line,
 	XAxis,
 	YAxis,
-	// CartesianGrid,
 	Tooltip,
-	// Legend,
 	ResponsiveContainer,
-	// ReferenceArea,
 } from "recharts";
 import data from "../../data/mock-average-sessions.json";
 import "../../styles/GraphAvgSession.scss";
+
+// const CustomCursor = (props) => {
+// 	const { width, height, points } = props;
+// 	return (
+// 		<div
+// 			className="cursor-square"
+// 			// style={{
+// 			// 	backgroundColor: "blue",
+// 			// 	width: "50px",
+// 			// 	height: "50px",
+// 			// 	position: "relative",
+// 			// 	top: "0",
+// 			// 	left: "0",
+// 			// }}
+// 		></div>
+// 	);
+// };
 
 const CustomTooltip = ({ active, payload }) => {
 	if (active && payload && payload.length) {
@@ -28,6 +42,9 @@ function GraphAvgSession() {
 	return (
 		<div className="graph-avg-session">
 			<ResponsiveContainer width="100%" height="100%">
+				<div className="length-title">
+					<h2>Durée moyenne des sessions</h2>
+				</div>
 				<LineChart
 					width={730}
 					height={250}
@@ -40,12 +57,15 @@ function GraphAvgSession() {
 							<stop offset="95%" stopColor="white" stopOpacity={1} />
 						</linearGradient>
 					</defs>
-					{/* <CartesianGrid strokeDasharray="3 3" /> */}
 					<XAxis
 						dataKey="day"
 						axisLine={false}
 						tickLine={false}
 						tick={{ fill: "#FFFFFF", opacity: "0.5" }}
+						tickFormatter={(value, index) => {
+							const days = ["L", "M", "M", "J", "V", "S", "D"];
+							return days[index % 7];
+						}}
 					/>
 					<YAxis
 						hide={true}
@@ -53,57 +73,14 @@ function GraphAvgSession() {
 						domain={["dataMin - 40", "dataMax + 40"]}
 					/>
 					<Tooltip cursor={false} content={<CustomTooltip />} />
-					{/* <Legend /> */}
 					<Line
 						type="natural"
 						dataKey="sessionLength"
 						stroke="url(#fadeIn)"
-						// fill="url("
 						strokeWidth={3}
 						dot={false}
 					/>
 				</LineChart>
-				{/* <BarChart width={150} height={100} data={data.data.sessions}>
-					<CartesianGrid strokeDasharray="3 3" />
-					<XAxis dataKey="day" />
-					<YAxis
-						yAxisId="kilogram"
-						dataKey="kilogram"
-						orientation="right"
-						domain={["dataMin - 5", "dataMax + 5"]}
-					/>
-					<YAxis
-						hide={true}
-						yAxisId="calories"
-						dataKey="calories"
-						orientation="right"
-						domain={["dataMin - 100", "dataMax + 100"]}
-					/>
-					<Tooltip />
-					<Legend
-						align="right"
-						verticalAlign="top"
-						iconType="circle"
-						name="calories"
-						unit="kCal"
-					/>
-					<Bar
-						name="Poids (kg)"
-						unit="kg"
-						dataKey="kilogram"
-						fill="#282D30"
-						barSize={10}
-						yAxisId="kilogram"
-					/>
-					<Bar
-						name="Calories brûlées (kCal)"
-						unit="kCal"
-						dataKey="calories"
-						fill="#E60000"
-						barSize={10}
-						yAxisId="calories"
-					/>
-				</BarChart> */}
 			</ResponsiveContainer>
 		</div>
 	);

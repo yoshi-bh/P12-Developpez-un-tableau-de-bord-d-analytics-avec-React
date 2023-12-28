@@ -13,7 +13,7 @@ function SideNav() {
 				<img src={Cycle} alt="Cycling Icon" />
 				<img src={Gym} alt="Gym Icon" />
 			</nav>
-			<p>Copiryght, SportSee 2020</p>
+			<p>Copyright, SportSee 2020</p>
 		</aside>
 	);
 }

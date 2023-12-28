@@ -39,7 +39,6 @@ function GraphUserScore() {
 						background={{ fill: "#FBFBFB" }}
 						cornerRadius={20}
 						minAngle={15}
-						// background
 						clockWise={true}
 						dataKey="score"
 					/>

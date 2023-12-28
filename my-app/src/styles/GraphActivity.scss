@@ -3,4 +3,58 @@
 .graph-activity {
 	grid-area: graph1;
 	background-color: $light-background;
+
+	.recharts-responsive-container {
+		position: relative;
+
+		.activity-title {
+			position: absolute;
+			top: 8%;
+			left: 3.5%;
+
+			h2 {
+				margin: 0;
+				color: #20253a;
+				font-size: 0.9375rem;
+				font-style: normal;
+				// font-weight: 500;
+			}
+		}
+
+		// .recharts-yAxis {
+		// transform:  translateX(2rem);
+		// }
+
+		.recharts-legend-wrapper {
+			padding: 1rem 0 3rem 0;
+
+			.recharts-legend-item {
+				padding-right: 2rem;
+
+				.recharts-legend-item-text {
+					padding-left: 0.6rem;
+					color: #74798c !important;
+					font-family: "Roboto", sans-serif;
+					font-size: 0.875rem;
+					font-style: normal;
+					font-weight: 500;
+				}
+			}
+		}
+
+		.custom-tooltip {
+			background-color: #e60000;
+			padding: 0 0.6rem;
+
+			.label {
+				margin: 0;
+				padding: 1rem 0;
+				text-align: center;
+				color: white;
+				font-size: 0.5375rem;
+				font-style: normal;
+				font-weight: 500;
+			}
+		}
+	}
 }
