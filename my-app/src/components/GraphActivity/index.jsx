@@ -8,7 +8,6 @@ import {
 	Legend,
 	ResponsiveContainer,
 } from "recharts";
-import data from "../../data/mock-activity.json";
 import "../../styles/GraphActivity.scss";
 
 const CustomTooltip = ({ active, payload }) => {
@@ -24,7 +23,7 @@ const CustomTooltip = ({ active, payload }) => {
 	return null;
 };
 
-function GraphActivity() {
+function GraphActivity(data) {
 	return (
 		<div className="graph-activity">
 			<ResponsiveContainer width="100%" height="100%">

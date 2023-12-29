@@ -4,10 +4,10 @@ import {
 	ResponsiveContainer,
 	PolarAngleAxis,
 } from "recharts";
-import data from "../../data/mock-user.json";
 import "../../styles/GraphUserScore.scss";
 
-function GraphUserScore() {
+function GraphUserScore(data) {
+	console.log(data);
 	return (
 		<div className="graph-user-score">
 			<ResponsiveContainer width="100%" height="100%">
@@ -22,7 +22,7 @@ function GraphUserScore() {
 					data={[
 						{
 							name: "Score",
-							score: data.data.todayScore * 100,
+							score: data.data * 100,
 							fill: "#FF0000",
 						},
 					]}
@@ -44,7 +44,7 @@ function GraphUserScore() {
 					/>
 				</RadialBarChart>
 				<div className="text-centered">
-					<h2>{data.data.todayScore * 100 + "%"}</h2>
+					<h2>{data.data * 100 + "%"}</h2>
 					<p>de votre objectif</p>
 				</div>
 			</ResponsiveContainer>

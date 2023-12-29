@@ -6,7 +6,6 @@ import {
 	Tooltip,
 	ResponsiveContainer,
 } from "recharts";
-import data from "../../data/mock-average-sessions.json";
 import "../../styles/GraphAvgSession.scss";
 
 // const CustomCursor = (props) => {
@@ -38,7 +37,7 @@ const CustomTooltip = ({ active, payload }) => {
 	return null;
 };
 
-function GraphAvgSession() {
+function GraphAvgSession(data) {
 	return (
 		<div className="graph-avg-session">
 			<ResponsiveContainer width="100%" height="100%">

@@ -6,14 +6,25 @@ import {
 	PolarGrid,
 	ResponsiveContainer,
 } from "recharts";
-import data from "../../data/mock-performance.json";
 import "../../styles/GraphPerformance.scss";
 
-function GraphPerformance() {
+function GraphPerformance(data) {
+	const names = [
+		"Intensité",
+		"Vitesse",
+		"Force",
+		"Endurance",
+		"Energie",
+		"Cardio",
+	];
+	console.log(data.data.data);
+	const graphData = data.data.data.map((elem) => {
+		return { subject: names[elem.kind - 1], value: elem.value, fullMark: 200 };
+	});
 	return (
 		<div className="graph-performance">
 			<ResponsiveContainer width="100%" height="100%">
-				<RadarChart outerRadius={90} width={730} height={250} data={data}>
+				<RadarChart outerRadius={90} width={730} height={250} data={graphData}>
 					<PolarGrid radialLines={false} stroke="#FFF" />
 					<PolarAngleAxis
 						dataKey="subject"
