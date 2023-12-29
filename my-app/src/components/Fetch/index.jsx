@@ -13,7 +13,7 @@ const FetchApi = () => {
 				.then((response) => response.json()) // Parse the response as JSON
 				.then((data) => {
 					setUser(data); // Set the fetched data
-					console.log(data);
+					// console.log(data);
 				})
 				.catch((error) => console.error(error));
 		};
@@ -21,8 +21,8 @@ const FetchApi = () => {
 		// Trigger fetching method on component mount
 		fetchUsingPromiseWithFetchApi();
 		console.log(user);
-	});
-	// }, []); // Run the effect only once on component mount
+		// });
+	}, []); // Run the effect only once on component mount
 
 	// return (
 	// <div className="container">

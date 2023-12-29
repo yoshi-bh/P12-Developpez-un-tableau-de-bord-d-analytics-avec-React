@@ -46,7 +46,7 @@ function GraphActivity() {
 						padding={{ left: -20, right: -20 }}
 						tick={{ fill: "#9B9EAC" }}
 						tickFormatter={(value, index) => {
-							return index + 1;
+							return +value.split("-")[2];
 						}}
 						tickMargin={15}
 					/>
