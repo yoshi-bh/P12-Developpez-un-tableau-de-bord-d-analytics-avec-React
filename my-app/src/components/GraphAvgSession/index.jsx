@@ -71,7 +71,15 @@ function GraphAvgSession(data) {
 						dataKey="sessionLength"
 						domain={["dataMin - 40", "dataMax + 40"]}
 					/>
-					<Tooltip cursor={false} content={<CustomTooltip />} />
+					<Tooltip
+						cursor={{
+							strokeLinecap: "square",
+							stroke: "black",
+							strokeWidth: 1000,
+							strokeOpacity: 0.1,
+						}}
+						content={<CustomTooltip />}
+					/>
 					<Line
 						type="natural"
 						dataKey="sessionLength"

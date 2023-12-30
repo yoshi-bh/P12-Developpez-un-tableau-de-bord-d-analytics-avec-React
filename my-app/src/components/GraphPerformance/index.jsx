@@ -17,7 +17,6 @@ function GraphPerformance(data) {
 		"Energie",
 		"Cardio",
 	];
-	console.log(data.data.data);
 	const graphData = data.data.data.map((elem) => {
 		return { subject: names[elem.kind - 1], value: elem.value, fullMark: 200 };
 	});

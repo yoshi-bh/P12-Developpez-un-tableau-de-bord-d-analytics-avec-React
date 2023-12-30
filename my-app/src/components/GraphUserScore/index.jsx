@@ -7,7 +7,6 @@ import {
 import "../../styles/GraphUserScore.scss";
 
 function GraphUserScore(data) {
-	console.log(data);
 	return (
 		<div className="graph-user-score">
 			<ResponsiveContainer width="100%" height="100%">

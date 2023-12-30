@@ -1,3 +1,4 @@
+import { useParams, Navigate } from "react-router-dom";
 import Header from "../../components/Header/index.jsx";
 import SideNav from "../../components/SideNav/index.jsx";
 import GraphActivity from "../../components/GraphActivity/index.jsx";
@@ -14,10 +15,32 @@ import "../../styles/_variables.scss";
 import "../../styles/Home.scss";
 
 function Home() {
-	const { loadingScore, user, activity, duration, performance } = useFetch("12");
+	const { userId } = useParams();
 
-	if (!loadingScore) {
-		console.log(loadingScore);
+	const {
+		isLoading: userLoading,
+		data: user,
+		error,
+	} = useFetch("http://localhost:3001/user/" + userId);
+	const { isLoading: activityLoading, data: activity } = useFetch(
+		"http://localhost:3001/user/" + userId + "/activity"
+	);
+	const { isLoading: durationLoading, data: duration } = useFetch(
+		"http://localhost:3001/user/" + userId + "/average-sessions"
+	);
+	const { isLoading: performanceLoading, data: performance } = useFetch(
+		"http://localhost:3001/user/" + userId + "/performance"
+	);
+
+	if (error) {
+		return <Navigate to="/user/12" />;
+	}
+	if (
+		!userLoading &&
+		!activityLoading &&
+		!durationLoading &&
+		!performanceLoading
+	) {
 		return (
 			<div className="home">
 				<Header />
