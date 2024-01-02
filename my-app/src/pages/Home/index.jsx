@@ -21,15 +21,15 @@ function Home() {
 		isLoading: userLoading,
 		data: user,
 		error,
-	} = useFetch("http://localhost:3003/user/" + userId);
+	} = useFetch("http://localhost:3000/user/" + userId);
 	const { isLoading: activityLoading, data: activity } = useFetch(
-		"http://localhost:3003/user/" + userId + "/activity"
+		"http://localhost:3000/user/" + userId + "/activity"
 	);
 	const { isLoading: durationLoading, data: duration } = useFetch(
-		"http://localhost:3003/user/" + userId + "/average-sessions"
+		"http://localhost:3000/user/" + userId + "/average-sessions"
 	);
 	const { isLoading: performanceLoading, data: performance } = useFetch(
-		"http://localhost:3003/user/" + userId + "/performance"
+		"http://localhost:3000/user/" + userId + "/performance"
 	);
 
 	if (error) {
