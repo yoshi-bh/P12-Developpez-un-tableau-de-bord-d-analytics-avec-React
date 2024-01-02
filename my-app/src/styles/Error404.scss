@@ -1,0 +1,32 @@
+@import "_variables.scss";
+
+.error {
+	.main-section {
+		display: flex;
+	}
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 2.5rem 4.1rem 2rem 5.2rem;
+		width: 100%;
+		min-height: calc(100vh - 5.7rem);
+		text-align: center;
+
+		h1 {
+			margin: 0;
+			font-size: 22rem;
+			font-style: normal;
+		}
+
+		h2 {
+			margin: 0;
+			padding-bottom: 3rem;
+			font-size: 5rem;
+			font-style: normal;
+		}
+
+		// p {}
+	}
+}

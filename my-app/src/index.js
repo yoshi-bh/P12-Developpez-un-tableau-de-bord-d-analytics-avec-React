@@ -4,9 +4,9 @@ import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
-	Navigate,
 } from "react-router-dom";
 import Home from "./pages/Home/";
+import Error404 from "./pages/Error404";
 import "./styles/index.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,7 +15,7 @@ root.render(
 		<Router>
 			<Routes>
 				<Route path="/user/:userId" element={<Home />} />
-				<Route path="*" element={<Navigate to="/user/12" />} />
+				<Route path="*" element={<Error404 />} />
 			</Routes>
 		</Router>
 	</React.StrictMode>

@@ -21,19 +21,19 @@ function Home() {
 		isLoading: userLoading,
 		data: user,
 		error,
-	} = useFetch("http://localhost:3001/user/" + userId);
+	} = useFetch("http://localhost:3003/user/" + userId);
 	const { isLoading: activityLoading, data: activity } = useFetch(
-		"http://localhost:3001/user/" + userId + "/activity"
+		"http://localhost:3003/user/" + userId + "/activity"
 	);
 	const { isLoading: durationLoading, data: duration } = useFetch(
-		"http://localhost:3001/user/" + userId + "/average-sessions"
+		"http://localhost:3003/user/" + userId + "/average-sessions"
 	);
 	const { isLoading: performanceLoading, data: performance } = useFetch(
-		"http://localhost:3001/user/" + userId + "/performance"
+		"http://localhost:3003/user/" + userId + "/performance"
 	);
 
 	if (error) {
-		return <Navigate to="/user/12" />;
+		return <Navigate to="/404" />;
 	}
 	if (
 		!userLoading &&
