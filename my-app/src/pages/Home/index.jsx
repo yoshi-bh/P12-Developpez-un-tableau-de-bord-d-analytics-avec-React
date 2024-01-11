@@ -10,37 +10,20 @@ import IconCalories from "../../assets/calories-icon.svg";
 import IconProtein from "../../assets/protein-icon.svg";
 import IconCarb from "../../assets/carbs-icon.svg";
 import IconFat from "../../assets/fat-icon.svg";
-import { useFetch } from "../../components/useFetch/index";
+import GetAllData from "../../utilities/getAllData.js";
 import "../../styles/_variables.scss";
 import "../../styles/Home.scss";
 
 function Home() {
 	const { userId } = useParams();
 
-	const {
-		isLoading: userLoading,
-		data: user,
-		error,
-	} = useFetch("http://localhost:3000/user/" + userId);
-	const { isLoading: activityLoading, data: activity } = useFetch(
-		"http://localhost:3000/user/" + userId + "/activity"
-	);
-	const { isLoading: durationLoading, data: duration } = useFetch(
-		"http://localhost:3000/user/" + userId + "/average-sessions"
-	);
-	const { isLoading: performanceLoading, data: performance } = useFetch(
-		"http://localhost:3000/user/" + userId + "/performance"
-	);
+	const { isLoading, data, error } = GetAllData(userId);
+	const { user, activity, averageSessions, performance } = data;
 
 	if (error) {
 		return <Navigate to="/404" />;
 	}
-	if (
-		!userLoading &&
-		!activityLoading &&
-		!durationLoading &&
-		!performanceLoading
-	) {
+	if (!isLoading) {
 		return (
 			<div className="home">
 				<Header />
@@ -48,15 +31,14 @@ function Home() {
 					<SideNav />
 					<div className="content">
 						<h1>
-							Bonjour{" "}
-							<span className="highlight">{user.userInfos.firstName}</span>
+							Bonjour <span className="highlight">{user.firstName}</span>
 						</h1>
 						<p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
 						<div className="graph-container">
 							<GraphActivity data={activity} />
-							<GraphAvgSession data={duration} />
+							<GraphAvgSession data={averageSessions} />
 							<GraphPerformance data={performance} />
-							<GraphUserScore data={user.todayScore || user.score} />
+							<GraphUserScore data={user} />
 							<div className="values">
 								<ValueCard
 									icon={IconCalories}

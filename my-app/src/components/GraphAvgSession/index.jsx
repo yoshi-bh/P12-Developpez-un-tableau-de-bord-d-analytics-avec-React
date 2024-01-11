@@ -8,23 +8,6 @@ import {
 } from "recharts";
 import "../../styles/GraphAvgSession.scss";
 
-// const CustomCursor = (props) => {
-// 	const { width, height, points } = props;
-// 	return (
-// 		<div
-// 			className="cursor-square"
-// 			// style={{
-// 			// 	backgroundColor: "blue",
-// 			// 	width: "50px",
-// 			// 	height: "50px",
-// 			// 	position: "relative",
-// 			// 	top: "0",
-// 			// 	left: "0",
-// 			// }}
-// 		></div>
-// 	);
-// };
-
 const CustomTooltip = ({ active, payload }) => {
 	if (active && payload && payload.length) {
 		return (
@@ -37,7 +20,7 @@ const CustomTooltip = ({ active, payload }) => {
 	return null;
 };
 
-function GraphAvgSession(data) {
+function GraphAvgSession({ data }) {
 	return (
 		<div className="graph-avg-session">
 			<ResponsiveContainer width="100%" height="100%">
@@ -47,7 +30,7 @@ function GraphAvgSession(data) {
 				<LineChart
 					width={730}
 					height={250}
-					data={data.data.sessions}
+					data={data.sessions}
 					margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
 				>
 					<defs>

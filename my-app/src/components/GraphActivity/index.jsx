@@ -23,7 +23,7 @@ const CustomTooltip = ({ active, payload }) => {
 	return null;
 };
 
-function GraphActivity(data) {
+function GraphActivity({ data }) {
 	return (
 		<div className="graph-activity">
 			<ResponsiveContainer width="100%" height="100%">
@@ -33,7 +33,7 @@ function GraphActivity(data) {
 				<BarChart
 					width={150}
 					height={100}
-					data={data.data.sessions}
+					data={data.activity}
 					barGap={15}
 					margin={{ top: 10, right: 0, bottom: 10, left: 0 }}
 				>
@@ -41,7 +41,6 @@ function GraphActivity(data) {
 					<XAxis
 						dataKey="day"
 						tickLine={false}
-						// scale={"point"}
 						padding={{ left: -20, right: -20 }}
 						tick={{ fill: "#9B9EAC" }}
 						tickFormatter={(value, index) => {
@@ -80,7 +79,6 @@ function GraphActivity(data) {
 						unit="kg"
 						dataKey="kilogram"
 						fill="#282D30"
-						// maxBarSize={10}
 						barSize={10}
 						radius={[20, 20, 0, 0]}
 						yAxisId="kilogram"
@@ -90,7 +88,6 @@ function GraphActivity(data) {
 						unit="kCal"
 						dataKey="calories"
 						fill="#E60000"
-						// maxBarSize={10}
 						barSize={10}
 						radius={[20, 20, 0, 0]}
 						yAxisId="calories"

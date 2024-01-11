@@ -6,7 +6,7 @@ import {
 } from "recharts";
 import "../../styles/GraphUserScore.scss";
 
-function GraphUserScore(data) {
+function GraphUserScore({data}) {
 	return (
 		<div className="graph-user-score">
 			<ResponsiveContainer width="100%" height="100%">
@@ -21,7 +21,7 @@ function GraphUserScore(data) {
 					data={[
 						{
 							name: "Score",
-							score: data.data * 100,
+							score: data.score,
 							fill: "#FF0000",
 						},
 					]}
@@ -43,7 +43,7 @@ function GraphUserScore(data) {
 					/>
 				</RadialBarChart>
 				<div className="text-centered">
-					<h2>{data.data * 100 + "%"}</h2>
+					<h2>{data.score + "%"}</h2>
 					<p>de votre objectif</p>
 				</div>
 			</ResponsiveContainer>

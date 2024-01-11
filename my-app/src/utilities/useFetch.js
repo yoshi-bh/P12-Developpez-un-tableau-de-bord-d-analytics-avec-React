@@ -9,8 +9,6 @@ export function useFetch(url) {
 	const [error, setError] = useState(false);
 
 	useEffect(() => {
-		console.log(url);
-
 		if (!url) return;
 
 		setLoading(true);
@@ -36,7 +34,6 @@ export function useFetch(url) {
 		fetchData();
 	}, [url]);
 
-	console.log(mockData[url]);
 	if (withAPI) {
 		return { isLoading, data, error };
 	} else {
