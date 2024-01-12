@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { mockData } from "./mockData.js";
 
-const withAPI = true;
+const withAPI = false;
 
 export function useFetch(url) {
 	const [data, setData] = useState({});
@@ -37,6 +37,8 @@ export function useFetch(url) {
 	if (withAPI) {
 		return { isLoading, data, error };
 	} else {
-		return { isLodaing: false, data: mockData[url], error: false };
+		if (mockData[url] === undefined) {
+			return { isLodaing: false, data: {}, error: true };
+		} else return { isLodaing: false, data: mockData[url], error: false };
 	}
 }

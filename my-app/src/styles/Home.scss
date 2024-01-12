@@ -10,6 +10,11 @@
 		width: 100%;
 		min-height: calc(100vh - 5.7rem);
 
+		@media (max-width: 1450px) {
+			height: auto;
+			padding: 2rem 3rem;
+		}
+		
 		h1 {
 			margin: 0;
 			font-size: 3rem;
@@ -38,9 +43,11 @@
 			gap: 2rem;
 			
 			@media (max-width: 1450px) {
-				grid-template-columns: auto auto 18rem;
-				grid-template-rows: auto 18rem auto;
+				width: 100%;
+				grid-template-columns: auto auto 14rem;
+				grid-template-rows: auto 14rem 14rem;
 				grid-template-areas: "values values values" "graph1 graph1 graph1" "graph2 graph3 graph4";
+				gap: 1rem;
 			}
 
 			& > * {

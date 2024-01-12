@@ -28,6 +28,11 @@ function GetAllData(userId) {
 		error: prfError,
 	} = useFetch("http://localhost:3000/user/" + userId + "/performance");
 
+	const error = usrError || actError || avgError || prfError;
+	const isLoading = usrLoading || actLoading || avgLoading || prfLoading;
+
+	if (error) return { isLoading, data: {}, error };
+
 	if (!usrLoading) {
 		user = new User(usr);
 	}
@@ -41,8 +46,6 @@ function GetAllData(userId) {
 		performance = new Perfomance(prf);
 	}
 
-	const isLoading = usrLoading || actLoading || avgLoading || prfLoading;
-	const error = usrError || actError || avgError || prfError;
 	const data = {
 		user,
 		activity,
