@@ -11,7 +11,11 @@ import "../../styles/GraphPerformance.scss";
 function GraphPerformance({ data }) {
 	return (
 		<div className="graph-performance">
-			<ResponsiveContainer width="100%" height="100%">
+			<ResponsiveContainer
+				width="100%"
+				height="100%"
+				className={"responsive-container"}
+			>
 				<RadarChart
 					outerRadius={90}
 					width={730}

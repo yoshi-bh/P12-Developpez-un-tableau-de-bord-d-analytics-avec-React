@@ -1,10 +1,11 @@
 import { useFetch } from "./useFetch.js";
-import User from "../models/user.js";
-import Activity from "../models/activity.js";
-import AverageSessions from "../models/average-sessions.js";
-import Perfomance from "../models/performance.js";
+import User from "../../models/user.js";
+import Activity from "../../models/activity.js";
+import AverageSessions from "../../models/average-sessions.js";
+import Perfomance from "../../models/performance.js";
 
 function GetAllData(userId) {
+	console.log("API!");
 	let user, activity, averageSessions, performance;
 
 	const {

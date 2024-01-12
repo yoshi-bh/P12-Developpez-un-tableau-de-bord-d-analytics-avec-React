@@ -5,64 +5,73 @@
 		display: flex;
 	}
 
-	.content {
-		padding: 2.5rem 4.1rem 2rem 5.2rem;
+	.content-container {
 		width: 100%;
-		min-height: calc(100vh - 5.7rem);
+		height: 100%;
+		display: flex;
+		align-items: center;
 
-		@media (max-width: 1450px) {
-			height: auto;
-			padding: 2rem 3rem;
-		}
-		
-		h1 {
-			margin: 0;
-			font-size: 3rem;
-			font-style: normal;
-			// font-weight: 500;
-
-			.highlight {
-				color: #ff0101;
-			}
-		}
-
-		p {
-			font-size: 1.125rem;
-			font-style: normal;
-			font-weight: 400;
-			margin-bottom: 3rem;
-		}
-
-		.graph-container {
+		.content {
+			margin: 2.5rem auto;
 			width: 95%;
-			height: 80%;
-			display: grid;
-			grid-template-columns: 25% 25% 18rem auto;
-			grid-template-rows: auto 18rem;
-			grid-template-areas: "graph1 graph1 graph1 values" "graph2 graph3 graph4 values";
-			gap: 2rem;
-			
-			@media (max-width: 1450px) {
-				width: 100%;
-				grid-template-columns: auto auto 14rem;
-				grid-template-rows: auto 14rem 14rem;
-				grid-template-areas: "values values values" "graph1 graph1 graph1" "graph2 graph3 graph4";
-				gap: 1rem;
-			}
-
-			& > * {
-				border-radius: 0.3125rem;
-			}
-		}
-
-		.values {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			grid-area: values;
+			height: 100%;
 
 			@media (max-width: 1450px) {
-				flex-direction: row;				
+				height: auto;
+				margin: 2rem auto;
+			}
+
+			h1 {
+				margin: 0;
+				font-size: 3rem;
+				font-style: normal;
+
+				.highlight {
+					color: #ff0101;
+				}
+			}
+
+			p {
+				font-size: 1.125rem;
+				font-style: normal;
+				font-weight: 400;
+				margin-bottom: 3rem;
+			}
+
+			.graph-container {
+				height: 100%;
+				display: grid;
+				grid-template-columns: 25% 25% 18rem auto;
+				grid-template-rows: minmax(17.5rem, auto) 18rem;
+				grid-template-areas: "graph1 graph1 graph1 values" "graph2 graph3 graph4 values";
+				gap: 2rem;
+
+				@media (max-width: 1450px) {
+					grid-template-columns: auto auto 18rem;
+					grid-template-rows: auto 18rem 18rem;
+					grid-template-areas: "values values values" "graph1 graph1 graph1" "graph2 graph3 graph4";
+					gap: 1rem;
+				}
+
+				@media (max-width: 1250px) {
+					grid-template-columns: auto auto 15rem;
+					grid-template-rows: auto 15rem 15rem;
+				}
+
+				& > * {
+					border-radius: 0.3125rem;
+				}
+			}
+
+			.values {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				grid-area: values;
+
+				@media (max-width: 1450px) {
+					flex-direction: row;
+				}
 			}
 		}
 	}

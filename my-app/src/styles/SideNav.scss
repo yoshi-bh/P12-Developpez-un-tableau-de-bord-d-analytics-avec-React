@@ -1,6 +1,7 @@
 @import "_variables.scss";
 
 .side-nav {
+	min-height: calc(100vh - 5.7rem);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
